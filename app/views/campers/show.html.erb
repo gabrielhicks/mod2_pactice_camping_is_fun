@@ -1,0 +1,6 @@
+<h1><%= @camper.name %></h1>
+<p>Age: <%= @camper.age %><br></p>
+<h4>Activities:<% @camper.activities.uniq.each do |activity|%></h4>
+<p><%= activity.name %></p>
+<% end %>
+<%=link_to "Back to all campers", campers_path%>

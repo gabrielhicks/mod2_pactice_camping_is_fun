@@ -1,0 +1,16 @@
+<h1>Signup for an Activity!</h1>
+<p>Please choose a camper, an activity, and a time between 0 and 23.</p>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+    <p style="color:red"><%= error %></p>
+    <% end %>
+<% end %>
+<%= form_for @signup do |f| %>
+    <%= f.label :camper %>
+    <%= f.collection_select :camper_id, Camper.all, :id, :name %>
+    <%= f.label :activity %>
+    <%= f.collection_select :activity_id, Activity.all, :id, :name %>
+    <%= f.label :time %>
+    <%= f.text_field :time %>
+    <%= f.submit %>
+<% end %>
